@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Buddy</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <div class="popup-header">
+            <div class="logo">
+                <span class="robot-emoji">🤖</span>
+                <h1>LeetCode Buddy</h1>
+            </div>
+            <div class="version">v1.0</div>
+        </div>
+
+        <!-- Status Section -->
+        <div class="status-section">
+            <div class="status-item">
+                <span class="status-indicator" id="leetcode-status"></span>
+                <span class="status-text" id="status-text">Checking LeetCode...</span>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="actions-section">
+            <h3>How to Use:</h3>
+            <ol class="instructions">
+                <li>Go to any <strong>LeetCode problem page</strong></li>
+                <li>Write your code in the editor</li>
+                <li>Click the <strong>"🤖 Get AI Help"</strong> button</li>
+                <li>Get instant AI analysis and fixes!</li>
+            </ol>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="settings-section">
+            <h3>Settings:</h3>
+            
+            <div class="setting-item">
+                <label for="api-provider">AI Provider:</label>
+                <select id="api-provider">
+                    <option value="dummy">Demo Mode (Free)</option>
+                    <option value="openai">OpenAI GPT (Requires API Key)</option>
+                    <option value="anthropic">Anthropic Claude (Coming Soon)</option>
+                    <option value="gemini">Google Gemini (Free Tier)</option>
+
+                </select>
+            </div>
+
+            <div class="setting-item" id="api-key-section" style="display: none;">
+                <label for="api-key">API Key:</label>
+                <div class="api-key-input">
+                    <input type="password" id="api-key" placeholder="Enter your API key...">
+                    <button id="save-key" class="btn btn-small">Save</button>
+                </div>
+                <small class="help-text">Your API key is stored locally and never shared.</small>
+            </div>
+
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="auto-detect-errors" checked>
+                    Auto-detect error messages
+                </label>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="links-section">
+            <a href="https://leetcode.com/problemset/" target="_blank" class="link-btn">
+                📝 Open LeetCode
+            </a>
+            <a href="#" id="help-link" class="link-btn">
+                ❓ Help & Tips
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="popup-footer">
+            <div class="stats">
+                <span id="usage-stats">Problems helped: <strong>0</strong></span>
+            </div>
+            <div class="credits">
+                Made with ❤️ for coders
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

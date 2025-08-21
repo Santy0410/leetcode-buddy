@@ -1,0 +1,243 @@
+/* LeetCode Buddy Styles */
+
+/* Button Styling */
+.leetcode-buddy-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 1000;
+  position: relative;
+}
+
+.leetcode-buddy-button:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.leetcode-buddy-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.leetcode-buddy-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Floating button positioning (fallback) */
+.leetcode-buddy-button.floating {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal Overlay */
+.leetcode-buddy-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Container */
+.leetcode-buddy-modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Header */
+.leetcode-buddy-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.leetcode-buddy-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.leetcode-buddy-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.leetcode-buddy-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Modal Content */
+.leetcode-buddy-modal-content {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(80vh - 80px);
+}
+
+.explanation-section,
+.fix-section {
+  margin-bottom: 24px;
+}
+
+.explanation-section h4,
+.fix-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explanation-section h4::before {
+  content: "💡";
+}
+
+.fix-section h4::before {
+  content: "🔧";
+}
+
+.explanation-section p {
+  margin: 0;
+  line-height: 1.6;
+  color: #4b5563;
+  white-space: pre-wrap;
+}
+
+/* Code Block Styling */
+.fix-section pre {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.fix-section code {
+  font-family: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .leetcode-buddy-modal-overlay {
+    padding: 10px;
+  }
+  
+  .leetcode-buddy-modal {
+    max-height: 90vh;
+  }
+  
+  .leetcode-buddy-modal-header,
+  .leetcode-buddy-modal-content {
+    padding: 16px;
+  }
+  
+  .leetcode-buddy-button.floating {
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Dark Mode Compatibility */
+@media (prefers-color-scheme: dark) {
+  .leetcode-buddy-modal {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .leetcode-buddy-modal-header {
+    border-bottom-color: #374151;
+  }
+  
+  .explanation-section h4,
+  .fix-section h4 {
+    color: #f3f4f6;
+  }
+  
+  .explanation-section p {
+    color: #d1d5db;
+  }
+}
+
+/* Integration with LeetCode's existing styles */
+.leetcode-buddy-button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Ensure button doesn't interfere with LeetCode's layout */
+.leetcode-buddy-button:not(.floating) {
+  flex-shrink: 0;
+}
